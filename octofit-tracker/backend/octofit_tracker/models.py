@@ -12,6 +12,8 @@ class User(AbstractUser):
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['username']
 
+    def __str__(self):
+        return self.username
 class Activity(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='activities')
     type = models.CharField(max_length=50)
